@@ -118,6 +118,10 @@ build {
           output = "${var.output_directory}/packer-build/output/boxes/${local.vm_name}/{{.Provider}}/{{.BuildName}}.box"
           vagrantfile_template = "${path.root}/vagrantfile.rb"
         }
+        post-processor "manifest" {
+            output = "${var.output_directory}/packer-build/output/boxes/${local.vm_name}/manifest.json"
+            strip_path = true
+        }
     }
 
 }
