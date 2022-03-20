@@ -16,7 +16,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Check the current and new vagrant box version
-        uses: make version
+        run: make version
       - name: Build the vagrant box
         run: make build
       - name: Test if vagrant box was correctly built
