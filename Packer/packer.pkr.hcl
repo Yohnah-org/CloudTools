@@ -3,11 +3,15 @@ variable "output_directory" {
     default = "."
 }
 
+variable "debian_version" {
+    type = string
+}
+
 locals {
     vm_name = "cloudtools"
-    debian_version = "11.2.0"
+    debian_version = var.debian_version
     http_directory = "${path.root}/http"
-    iso_url = "https://cdimage.debian.org/debian-cd/${local.debian_version}/amd64/iso-cd/debian-${local.debian_version}-amd64-netinst.iso"
+    iso_url = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-${local.debian_version}-amd64-netinst.iso"
     iso_checksum = "file:https://cdimage.debian.org/debian-cd/${local.debian_version}/amd64/iso-cd/SHA256SUMS"
     shutdown_command = "echo 'vagrant' | sudo -S shutdown -P now"
     boot_command = [
