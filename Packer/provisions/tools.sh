@@ -27,5 +27,10 @@ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt-get update && sudo apt-get -y install terraform packer vault
 
+echo "Installing Ansible"
+sudo pip3 install ansible
+sudo pip3 install paramiko
+sudo pip3 install pywinrm
+
 apt-get -y remove --purge unzip
 rm -fr $TMP_DIR
